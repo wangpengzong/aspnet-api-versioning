@@ -90,7 +90,11 @@
                 }
             }
 
-            return TrimTrailingNumbers( key );
+            if ( !action.RouteValues.TryGetValue( "area", out var area ) )
+            {
+            }
+
+            return TrimTrailingNumbers( area + key );
         }
 
         IEnumerable<IEnumerable<ActionDescriptor>> GroupActionsByController( IEnumerable<ActionDescriptor> actions )
